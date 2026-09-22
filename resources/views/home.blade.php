@@ -23,7 +23,7 @@
             <a href="{{ route('about') }}" style="background-color: #333; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background 0.3s;">
                 Kenal Lebih Dekat
             </a>
-            <a href="{{ route('projects') }}" style="background-color: #fff; color: #333; border: 2px solid #333; padding: 10px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: all 0.3s;">
+            <a href="{{ route('projects.index') }}" style="background-color: #fff; color: #333; border: 2px solid #333; padding: 10px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: all 0.3s;">
                 Lihat Portofolio
             </a>
         </div>

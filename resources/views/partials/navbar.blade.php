@@ -17,7 +17,7 @@
             <a href="{{ route('education') }}" style="color: #fff; text-decoration: none;">Education</a>
         </li>
         <li>
-            <a href="{{ route('projects') }}" style="color: #fff; text-decoration: none;">Projects</a>
+            <a href="{{ route('projects.index') }}" style="color: #fff; text-decoration: none;">Projects</a>
         </li>
     </ul>
 </nav>
