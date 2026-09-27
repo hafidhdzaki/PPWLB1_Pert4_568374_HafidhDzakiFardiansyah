@@ -11,8 +11,8 @@
         </a>
     </div>
 
-    @if(session('success'))
-        <p style="color: green; text-align: center;">{{ session('success') }}</p>
+    @if (session('success'))
+        <div class="alert alert-success">{{session('success')}}</div>
     @endif
 
     <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
