@@ -11,4 +11,10 @@ Route::get('/education', fn() => view('education'))->name('education');
 
 Route::get('/projects', fn() => view('projects'))->name('projects');
 
+Route::get('/projects/trashed', [ProjectController::class, 'trash']) -> name('projects.trash');
+
+Route::put('/projects/{id}/restore', [ProjectController::class, 'restore']) -> name('projects.restore');
+
+Route::delete('/projects/{id}/force-delete', [ProjectController::class, 'forceDelete']) -> name('projects.forceDelete');
+
 Route::resource('projects', ProjectController::class);

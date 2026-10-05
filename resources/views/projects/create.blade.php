@@ -25,9 +25,27 @@
                 <textarea name="description" rows="5" required style="width: 100%; padding: 5px;"></textarea>
             </div>
 
+            <div style="margin-bottom: 15px;">
+                <label>Status:</label><br>
+                <select name="status" required style="width: 100%; padding: 5px;">
+                    <option value="published">Published</option>
+                    <option value="draft">Draft</option>
+                </select>
+            </div>
+
             <button type="submit" style="padding: 10px 20px; background-color: #28a745; color: white; border: none;">
                 Simpan
             </button>
+
+            @if ($errors->any())
+                <div style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 15px; border: 1px solid #f5c6cb;">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             
             <a href="{{ route('projects.index') }}" style="margin-left: 10px; color: red; text-decoration: none;">
                 Batal

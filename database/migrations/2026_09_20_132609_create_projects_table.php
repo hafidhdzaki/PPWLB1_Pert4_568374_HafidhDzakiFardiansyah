@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('tools');
             $table->text('description');
             $table->timestamps();
+            $table->enum('status', ['draft', 'published']);
+            $table->softDeletes();
         });
     }
 

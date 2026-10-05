@@ -35,6 +35,14 @@
                 @enderror
             </div>
 
+            <div style="margin-bottom: 15px;">
+                <label>Status:</label><br>
+                <select name="status" required style="width: 100%; padding: 5px;">
+                    <option value="published">Published</option>
+                    <option value="draft">Draft</option>
+                </select>
+            </div>
+
             <button type="submit" style="padding: 10px 20px; background-color: #28a745; color: white; border: none;">
                 Simpan
             </button>

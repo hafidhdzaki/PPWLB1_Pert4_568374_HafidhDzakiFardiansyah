@@ -9,6 +9,10 @@
         <a href="{{ route('projects.create') }}" style="padding: 5px 10px; background-color: #007bff; color: white; text-decoration: none;">
             + Tambah Project Baru
         </a>
+
+        <a href="{{ route('projects.trash') }}" style="padding: 5px 10px; background-color: #ffc107; color: black; text-decoration: none;">
+            Lihat Trash (Data Terhapus)
+        </a>
     </div>
 
     @if (session('success'))
