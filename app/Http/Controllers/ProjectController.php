@@ -10,13 +10,20 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = array(
-            'id' => 'projects',
-            'projects' => Project::published()->get()
-        );
-        return view('projects.index')->with($data);
+        $search = $request->input('search');
+        $perPage = $request->input('per_page', 10);
+
+        $query = Project::published();
+
+        if ($search) {
+            $query->where('title', 'like', "%{$search}%");
+        }
+
+        $projects = $query->paginate($perPage)->withQueryString();
+
+        return view('projects.index', compact('projects'));
     }
 
     /**
