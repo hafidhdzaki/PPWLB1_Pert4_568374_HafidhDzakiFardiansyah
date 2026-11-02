@@ -1,1 +1,7 @@
-console.log('Script app.js berhasil dimuat menggunakan Vite!');
+
+
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+
+Alpine.start();

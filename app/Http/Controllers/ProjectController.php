@@ -61,7 +61,7 @@ class ProjectController extends Controller
     {
         $data = array(
             'id' => 'projects',
-            'projects' => Project::find($id)
+            'projects' => Project::findOrFail($id)
         );
         return view('projects.show')->with($data);
         //
