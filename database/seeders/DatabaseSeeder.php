@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Project;
+use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -18,6 +19,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
+
+        Category::create(['name' => 'Web Development']);
+        Category::create(['name' => 'Mobile App']);
+        Category::create(['name' => 'UI/UX Design']);
 
         User::create([
             'name'     => 'Admin Portofolio',

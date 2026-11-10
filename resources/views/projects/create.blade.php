@@ -7,12 +7,24 @@
 
     <div style="width: 50%; margin: 0 auto; border: 1px solid #000; padding: 20px;">
         
-        <form action="{{ route('projects.store') }}" method="POST">
+        <form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div style="margin-bottom: 15px;">
+                <label>Kategori Project:</label><br>
+                <select name="category_id" required style="width: 100%; padding: 5px;">
+                    <option value="">-- Pilih Kategori --</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div style="margin-bottom: 15px;">
                 <label>Judul Project:</label><br>
-                <input type="text" name="title" required style="width: 100%; padding: 5px;">
+                <input type="text" name="title" value="{{ old('title') }}" required style="width: 100%; padding: 5px;">
             </div>
 
             <div style="margin-bottom: 15px;">
@@ -31,6 +43,11 @@
                     <option value="published">Published</option>
                     <option value="draft">Draft</option>
                 </select>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label>Thumbnail (Gambar Project):</label><br>
+                <input type="file" name="thumbnail" accept="image/*" style="width: 100%; padding: 5px;">
             </div>
 
             <button type="submit" style="padding: 10px 20px; background-color: #28a745; color: white; border: none;">

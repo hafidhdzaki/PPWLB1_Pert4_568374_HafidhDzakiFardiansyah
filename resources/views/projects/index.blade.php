@@ -38,7 +38,10 @@
         
         @forelse($projects as $index => $project)
             <div style="border: 1px solid #000; padding: 15px; width: 300px; overflow-wrap: break-word;">
-                
+                @if($project->thumbnail)
+                    <img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->title }}" style="width: 100%; height: 150px; object-fit: cover; margin-bottom: 10px;">
+                @endif    
+
                 <small style="color: gray;">Project #{{ $projects->firstItem() + $index }}</small>
                 
                 <h3>{{ $project->title }}</h3>
