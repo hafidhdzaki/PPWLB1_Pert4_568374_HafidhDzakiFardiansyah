@@ -3,11 +3,12 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\Project;
 use App\Models\Category;
+use App\Models\Technology;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,9 +21,19 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        Category::create(['name' => 'Web Development']);
-        Category::create(['name' => 'Mobile App']);
-        Category::create(['name' => 'UI/UX Design']);
+        foreach (['Web Development', 'Mobile App', 'UI/UX Design'] as $name) {
+            Category::create([
+                'name' => $name,
+                'slug' => Str::slug($name),
+            ]);
+        }
+
+        foreach (['Laravel', 'PHP', 'MySQL', 'JavaScript', 'Tailwind CSS', 'Docker'] as $name) {
+            Technology::create([
+                'name' => $name,
+                'slug' => Str::slug($name),
+            ]);
+        }
 
         User::create([
             'name'     => 'Admin Portofolio',

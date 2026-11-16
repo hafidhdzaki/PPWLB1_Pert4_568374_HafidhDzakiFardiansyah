@@ -23,6 +23,8 @@
             <li>
                 <span style="margin-right: 15px;">Halo, {{ Auth::user()->name }} ({{ strtoupper(Auth::user()->role) }})</span>
                 
+                <a href="{{ route('dashboard') }}" style="color: white; margin-right: 15px;">Dashboard</a>
+
                 <a href="{{ route('profile.show') }}" style="color: white; margin-right: 15px;">Profil Saya</a>
             </li>
             

@@ -26,7 +26,6 @@
                 <div style="display: flex; gap: 10px;">
                     <form action="{{ route('projects.restore', $project->id) }}" method="POST">
                         @csrf
-                        @method('PUT')
                         <button type="submit" style="padding: 5px; background-color: #28a745; color: white; border: none; cursor: pointer;">Restore</button>
                     </form>
 

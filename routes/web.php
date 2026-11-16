@@ -19,12 +19,11 @@ Route::get('/education', function () {
     return view('education'); 
 })->name('education');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('projects', ProjectController::class)->except(['index', 'show']);
 
     Route::get('/trash', [ProjectController::class, 'trash'])->name('projects.trash');
@@ -36,8 +35,13 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/projects/{project}/gallery/{image}', [ProjectGalleryController::class, 'destroy'])->name('projects.gallery.destroy');
 });
 
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects/{project:slug}', [ProjectController::class, 'show'])->name('projects.show');
+
 Route::middleware('auth')->group(function () {
-    Route::resource('projects', ProjectController::class)->only(['index', 'show']);
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/profile-saya', function () {
         return view('profile-saya', ['user' => Auth::user()]);
